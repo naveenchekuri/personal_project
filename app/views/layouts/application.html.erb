@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PersonalProject</title>
-  <%= stylesheet_link_tag :all %>
+  <title>Book Reservation System</title>
+  <%= stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/warehouse/style", "web-app-theme/override", :cache => true %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Book Reservation System</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+           <% if user_signed_in? %>
+               Signed in as <%= current_user.email %>. Not You?
+               <%= link_to t("web-app-theme.profile", :default => "Signout"), destroy_user_session_path, :method => :delete %> 
+               <%= link_to t("web-app-theme.profile", :default => "Reserve a Book"), new_book_path %>
+               <%= link_to t("web-app-theme.profile", :default => "See the list of Books"), books_path %>
+           <% else %>
+          <%= link_to t("web-app-theme.profile", :default =>"Sign up"), new_user_registration_path %> or <%= link_to t("web-app-theme.profile", :default => "Sign in"), new_user_session_path %>
+           <%end%>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf"></ul>
+      </div>
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+     <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Book Reservation System</p>
+          </div>
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
+

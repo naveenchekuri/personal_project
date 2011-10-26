@@ -7,6 +7,18 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 
+gem 'will_paginate', '3.0.pre2'
+gem 'devise'
+gem 'jquery-rails'
+ 
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'hpricot'
+  gem 'ruby_parser'
+  gem 'web-app-theme'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

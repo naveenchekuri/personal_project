@@ -1,0 +1,31 @@
+ <%= hidden_field_tag :direction, params[:direction]%>
+ <%= hidden_field_tag :sort, params[:sort]%>
+
+<table border="1">
+  <tr>
+    <th><%= sortable "title" %></th>
+    <th><%= sortable "price" %></th>
+    <th><%= sortable "subject_id" %></th>
+    <th>Description</th>
+    <th><%= sortable "email" %></th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+
+<% for book in @books %>
+  <tr>
+    <td><%= book.title %></td>
+    <td class="price"><%= book.price %></td>
+    <td><%= book.subject_id %></td>
+    <td><%= book.description %></td>
+    <td><%= book.email %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @books %>
+

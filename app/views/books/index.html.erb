@@ -1,0 +1,9 @@
+<%= form_tag books_path, :method => 'get', :id => "books_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :title => nil %>
+  </p>
+<div id="books"><%= render 'books' %></div>
+<% end %>
+
+<p><%= link_to 'New Book', new_book_path %></p>
