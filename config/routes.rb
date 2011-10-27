@@ -1,13 +1,14 @@
 PersonalProject::Application.routes.draw do
+  resources :comments
+
   resources :books
 
   devise_for :users
 
-  get "home/index"
+  get "comments/index"
 
-  root :to => "home#index"
+  root :to => "comments#index"
 
-  resources :book
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

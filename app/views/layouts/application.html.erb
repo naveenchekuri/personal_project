@@ -13,12 +13,12 @@
       <div id="user-navigation">
         <ul class="wat-cf">
            <% if user_signed_in? %>
-               Signed in as <%= current_user.email %>. Not You?
-               <%= link_to t("web-app-theme.profile", :default => "Signout"), destroy_user_session_path, :method => :delete %> 
-               <%= link_to t("web-app-theme.profile", :default => "Reserve a Book"), new_book_path %>
-               <%= link_to t("web-app-theme.profile", :default => "See the list of Books"), books_path %>
+           <font color=#ffb6c1>    Signed in as <%= current_user.email %>. Not You? </font>
+           <font color=#ffb6c1>    <%= link_to t("web-app-theme.profile", :default => "Signout"), destroy_user_session_path, :method => :delete %> </font>
+<font color=#ffb6c1> <%= link_to t("web-app-theme.profile", :default => "Reserve a Book"), new_book_path %> </font>
+<font color=#ffb6c1> <%= link_to t("web-app-theme.profile", :default => "See the list of Books"), books_path %> </font>
            <% else %>
-          <%= link_to t("web-app-theme.profile", :default =>"Sign up"), new_user_registration_path %> or <%= link_to t("web-app-theme.profile", :default => "Sign in"), new_user_session_path %>
+<font color=#ffb6c1> <%= link_to t("web-app-theme.profile", :default =>"Sign up"), new_user_registration_path %> or <%= link_to t("web-app-theme.profile", :default => "Sign in"), new_user_session_path %> </font>
            <%end%>
         </ul>
       </div>

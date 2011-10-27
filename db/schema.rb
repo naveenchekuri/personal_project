@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026054242) do
+ActiveRecord::Schema.define(:version => 20111026143126) do
 
   create_table "books", :force => true do |t|
     t.string   "title",       :limit => 32, :null => false
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20111026054242) do
     t.text     "description"
     t.datetime "created_at"
     t.string   "email"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "subjects", :force => true do |t|
